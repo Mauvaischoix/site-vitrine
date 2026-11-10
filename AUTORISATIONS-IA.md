@@ -11,9 +11,9 @@
 | IA / outil | Rôle | Accès au serveur | Accès GitHub | Statut |
 |---|---|---|---|---|
 | Claude (Cowork / Claude Code) | Construction (jusqu'au ~30/11/2026) | via le propriétaire | via le propriétaire | ✅ autorisé |
-| Gemini CLI / Jules | Chef des opérations (12 mois) | compte `agents` (clé dédiée) | jeton limité au dépôt du site | ⏳ à activer |
-| OpenCode (modèles gratuits) | Exécutant | compte `agents` (clé dédiée) | jeton limité, branche de travail | ⏳ à activer |
-| IA locale (Ollama sur le serveur) | Secours, petites tâches | aucun accès réseau sortant requis | aucun | ⏳ à activer |
+| Gemini CLI / Jules | Chef des opérations (12 mois) | compte `agents` | clé de déploiement du dépôt du site — **niveau 3** | ✅ autorisé |
+| OpenCode (modèles gratuits) | Exécutant | compte `agents` | clé de déploiement du dépôt du site — **niveau 3** | ✅ autorisé |
+| IA locale (Ollama, via OpenCode) | Secours, petites tâches | compte `agents` | clé de déploiement du dépôt du site — **niveau 3** | ✅ autorisé |
 | **Toute autre IA** | — | **❌ refusé** | **❌ refusé** | demande obligatoire (section 5) |
 
 Une IA absente de ce tableau n'a **aucun** accès.
@@ -27,7 +27,7 @@ Une IA absente de ce tableau n'a **aucun** accès.
 | 0 — Lecture | Lire le code et la documentation | propriétaire |
 | 1 — Travail | Modifier des fichiers sur une **branche de travail**, lancer les tests | propriétaire |
 | 2 — Proposition | Ouvrir une demande de fusion (pull request) vers `main` | propriétaire |
-| 3 — Mise en ligne | Fusion dans `main` → déploiement automatique, **seulement si toutes les vérifications passent** | automatique, jamais manuel par une IA |
+| 3 — Publication autonome | Pousser une branche `ia/*` → pull request créée et **fusionnée automatiquement** → site mis à jour, **sans validation humaine**, seulement si toutes les vérifications passent | accordé par le propriétaire le 10/11/2026 à Gemini, OpenCode et l'IA locale |
 | Admin | Serveur (sudo), clés, paramètres GitHub/Cloudflare/Oracle, argent | **humain uniquement, jamais une IA** |
 
 ---
@@ -93,5 +93,10 @@ L'IA (ou l'humain qui veut l'ajouter) ajoute une demande ci-dessous. Rien n'est 
 - **Incident** (action non prévue, fuite de secret) : couper l'accès de l'IA concernée d'abord, comprendre ensuite, changer les clés touchées.
 
 ---
+
+## 7. Décision du propriétaire (10/11/2026)
+Gemini, OpenCode et l'IA locale reçoivent les **pleins pouvoirs sur le travail du site** (niveau 3 : modifier, proposer et publier seuls).
+Restent réservés à l'humain : administration du serveur (sudo), clés et mots de passe, paramètres GitHub/Cloudflare/Oracle, argent.
+La protection de `main` et les vérifications automatiques restent le filet de sécurité : une modification qui casse une vérification n'est jamais publiée.
 
 _Propriétaire : le titulaire du compte Oracle / GitHub / Tailscale du projet. Dernière mise à jour : 10/11/2026._

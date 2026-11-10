@@ -25,8 +25,14 @@ C'est volontaire : moins de code = moins de failles et presque pas de maintenanc
 - Fusion dans `main` (via pull request, après vérifications vertes) → **mise en ligne**.
 - Jamais de push direct sur `main`.
 
+## Comment publier (IA autorisées, niveau 3)
+1. `git checkout -b ia/<sujet-court>` puis modifier, `git commit`, `git push -u origin ia/<sujet-court>`.
+2. Le dépôt crée tout seul la pull request et la fusionne dès que les vérifications sont vertes : le site est mis à jour ~1 minute après.
+3. Si une vérification échoue : corriger sur la même branche et pousser à nouveau. Rien n'est publié tant que ce n'est pas vert.
+4. Sur le serveur, le dépôt est déjà cloné dans `~/projets/site-vitrine` (remote `github-site-vitrine:` avec la clé de déploiement).
+
 ## Règles de modification
-1. Travailler sur une branche `ia/<sujet-court>`, ouvrir une pull request.
+1. Toujours une branche `ia/<sujet-court>` (jamais `main`).
 2. **Pas de JavaScript, de script externe, de police externe ni d'iframe** sans mise à jour de `_headers` ET accord du propriétaire (la CSP bloque tout le reste, c'est voulu).
 3. Pas d'attribut `style="..."` ni de `<style>` dans le HTML (bloqué par la CSP) : tout va dans `styles.css`.
 4. Images : dans `/images`, formats WebP/AVIF, largeur ≤ 1600 px, attribut `alt` obligatoire.

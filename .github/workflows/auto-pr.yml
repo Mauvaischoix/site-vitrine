@@ -1,0 +1,38 @@
+name: Publication automatique des branches IA
+
+# Toute branche ia/* poussée par une IA devient une pull request
+# qui se fusionne toute seule dès que les vérifications sont vertes.
+on:
+  push:
+    branches: ["ia/**"]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-pr-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  auto-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      BRANCHE: ${{ github.ref_name }}
+      MESSAGE: ${{ github.event.head_commit.message }}
+    steps:
+      - name: Créer la pull request si besoin et activer la fusion automatique
+        run: |
+          set -euo pipefail
+          num=$(gh pr list -R "$REPO" --head "$BRANCHE" --state open --json number --jq '.[0].number // empty')
+          if [ -z "$num" ]; then
+            titre=$(printf '%s' "$MESSAGE" | head -n1 | cut -c1-120)
+            gh pr create -R "$REPO" --base main --head "$BRANCHE" \
+              --title "${titre:-Modification IA ($BRANCHE)}" \
+              --body "Proposition automatique depuis la branche \`$BRANCHE\` (voir HANDOFF.md). Fusion automatique si toutes les vérifications passent."
+            num=$(gh pr list -R "$REPO" --head "$BRANCHE" --state open --json number --jq '.[0].number')
+          fi
+          gh pr merge -R "$REPO" "$num" --auto --squash --delete-branch
