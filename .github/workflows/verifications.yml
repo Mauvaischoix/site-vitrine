@@ -1,0 +1,51 @@
+name: Vérifications
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verifications:
+    name: verifications
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Recherche de secrets (gitleaks, binaire officiel vérifié)
+        env:
+          GL_VERSION: "8.30.1"
+        run: |
+          set -euo pipefail
+          base="https://github.com/gitleaks/gitleaks/releases/download/v${GL_VERSION}"
+          f="gitleaks_${GL_VERSION}_linux_x64.tar.gz"
+          curl -fsSLO "$base/$f"
+          curl -fsSL "$base/gitleaks_${GL_VERSION}_checksums.txt" | grep " $f\$" | sha256sum -c -
+          tar -xzf "$f" gitleaks
+          ./gitleaks git --redact --verbose .
+
+      - name: En-têtes de sécurité présents
+        run: |
+          set -euo pipefail
+          for h in Content-Security-Policy X-Content-Type-Options X-Frame-Options Referrer-Policy Strict-Transport-Security; do
+            grep -q "$h" _headers || { echo "::error::En-tête manquant dans _headers : $h"; exit 1; }
+          done
+
+      - name: Pas de code bloqué par la CSP (style/script en ligne, scripts externes)
+        run: |
+          set -euo pipefail
+          if grep -rnE '\sstyle="|<style|<script|\son[a-z]+="' --include='*.html' .; then
+            echo "::error::Style ou script en ligne détecté : à déplacer dans styles.css (voir AI-MAINTENANCE.md)."
+            exit 1
+          fi
+
+      - name: Validation HTML
+        run: npx --yes html-validate@11.17.0 "**/*.html"
