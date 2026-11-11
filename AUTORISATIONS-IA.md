@@ -11,7 +11,7 @@
 | IA / outil | Rôle | Accès au serveur | Accès GitHub | Statut |
 |---|---|---|---|---|
 | Claude (Cowork / Claude Code) | Construction (jusqu'au ~30/11/2026) | via le propriétaire | via le propriétaire | ✅ autorisé |
-| Gemini CLI / Jules | Chef des opérations (12 mois) | compte `agents` | clé de déploiement du dépôt du site — **niveau 3** | ✅ autorisé |
+| Antigravity CLI (Gemini) / Jules | Chef des opérations (12 mois) | compte `agents` | clé de déploiement du dépôt du site — **niveau 3** | ✅ autorisé |
 | OpenCode (modèles gratuits) | Exécutant | compte `agents` | clé de déploiement du dépôt du site — **niveau 3** | ✅ autorisé |
 | IA locale (Ollama, via OpenCode) | Secours, petites tâches | compte `agents` | clé de déploiement du dépôt du site — **niveau 3** | ✅ autorisé |
 | **Toute autre IA** | — | **❌ refusé** | **❌ refusé** | demande obligatoire (section 5) |
