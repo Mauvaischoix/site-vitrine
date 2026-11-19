@@ -6,6 +6,9 @@
   <title>Chasse aux bugs — mini-jeu</title>
   <meta name="description" content="Chasse aux bugs : un mini-jeu en JavaScript natif, sans bibliothèque. Attrapez les bugs avant qu'ils n'arrivent en production.">
   <link rel="canonical" href="https://site-vitrine-cuc.pages.dev/jeu/">
+  <link rel="alternate" hreflang="fr" href="https://site-vitrine-cuc.pages.dev/jeu/">
+  <link rel="alternate" hreflang="en" href="https://site-vitrine-cuc.pages.dev/en/game/">
+  <link rel="alternate" hreflang="x-default" href="https://site-vitrine-cuc.pages.dev/jeu/">
   <link rel="stylesheet" href="/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6f5c'/%3E%3Cpath d='M9 22V10h4l3 7 3-7h4v12' stroke='white' stroke-width='2.5' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
   <script src="/jeu/jeu.js" defer></script>
@@ -16,6 +19,7 @@
       <a class="logo" href="/">Atelier Web</a>
       <nav aria-label="Navigation principale">
         <a href="/">Accueil</a>
+        <a href="/en/game/" hreflang="en" lang="en" aria-label="English version">EN</a>
       </nav>
     </div>
   </header>
@@ -23,7 +27,15 @@
   <main class="section">
     <div class="conteneur jeu">
       <h1>Chasse aux bugs</h1>
-      <p class="chapo">Attrapez les bugs avant qu'ils n'arrivent en production. Les tasses de café ralentissent le temps. Laissez passer les fonctionnalités vertes&nbsp;: les attraper coûte des points.</p>
+      <p class="chapo">Un mini-jeu codé en JavaScript, sans bibliothèque. Attrapez les bugs, laissez passer les fonctionnalités.</p>
+
+      <section class="explication" aria-labelledby="explication-titre">
+        <h2 id="explication-titre">Comment jouer</h2>
+        <p class="explication__legende">Explication audio (41 s). Tout ce qui est dit est écrit juste en dessous.</p>
+        <audio class="explication__audio" controls preload="none" src="/jeu/audio/explication-fr.mp3">Votre navigateur ne lit pas l'audio : le texte complet est ci-dessous.</audio>
+        <p class="explication__texte">Bienvenue dans Chasse aux bugs. Votre mission : empêcher les bugs d'arriver en production. En bas de l'écran, vous déplacez la barre « debug » avec les flèches du clavier, les touches A et D, la souris ou le doigt. Attrapez les bugs rouges : chaque bug attrapé rapporte des points, et une série de prises augmente le multiplicateur. Laissez passer les losanges verts : ce sont des fonctionnalités, et les attraper fait perdre quinze points. La tasse de café ralentit le jeu pendant quatre secondes. Si un bug atteint le bas de l'écran, vous perdez une vie. Vous avez trois vies, et le jeu accélère toutes les vingt secondes. Appuyez sur Espace pour faire une pause. Le jeu n'utilise aucun son : toutes les informations sont affichées à l'écran. Bonne chasse !</p>
+        <p class="explication__credit">Voix de synthèse : Piper, voix française SIWIS (Université d'Édimbourg, licence CC BY 4.0). <a href="/en/game/" hreflang="en" lang="en">English version, with English audio</a></p>
+      </section>
 
       <dl class="jeu__tableau">
         <div><dt>Score</dt><dd id="score">0</dd></div>
@@ -48,6 +60,7 @@
           <li>JavaScript natif et Canvas 2D, aucune bibliothèque, aucun appel réseau.</li>
           <li>Boucle de jeu à pas de temps fixe&nbsp;: même vitesse sur un écran à 60 ou 144&nbsp;Hz.</li>
           <li>Clavier, souris et tactile&nbsp;; pause automatique quand l'onglet est caché.</li>
+          <li>Aucun son&nbsp;: toutes les informations sont visuelles et annoncées aux lecteurs d'écran.</li>
           <li>Respecte le réglage «&nbsp;réduire les animations&nbsp;» et le mode sombre du système.</li>
           <li>Le record reste dans votre navigateur (stockage local), rien n'est envoyé.</li>
         </ul>

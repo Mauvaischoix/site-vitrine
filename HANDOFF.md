@@ -4,6 +4,11 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (bilingue + accessibilité)
+- **Fait** (même branche `ia/jeu-et-seo`) : site en français et en anglais (`/en/`, `/en/game/`, liens `hreflang`, bouton FR/EN, 404 bilingue). Jeu bilingue (textes choisis selon `<html lang>`). Explication du jeu en audio FR et EN (`jeu/audio/`, voix de synthèse Piper : SIWIS CC BY 4.0, LJ Speech domaine public) avec **texte intégral affiché** (accessible aux personnes sourdes et malentendantes). Le jeu n'utilise aucun son. Contact précisé « tout par écrit, pas besoin de téléphoner ».
+- **Testé** : html-validate OK ; Chrome sans interface, CSP du jeu appliquée : audio chargé (41 s FR, 43 s EN), jeu et pause en FR et EN, aucune erreur console.
+- **Reste** : vidéo en langue des signes (LSF / ASL) = nécessite un interprète humain, non fait. Toute modification de texte doit être faite dans les deux langues.
+
 ## 2026-11-20 — Claude (jeu + SEO)
 - **Fait** : branche `ia/jeu-et-seo`. Mini-jeu `/jeu/` (« Chasse aux bugs », JavaScript natif, Canvas, aucune bibliothèque ni appel réseau). CSP dédiée à `/jeu/*` dans `_headers` (`script-src 'self'`, détachement `!` de la CSP générale) ; reste du site inchangé (`script-src 'none'`). Vérifications : exception limitée à la balise `<script src="/jeu/jeu.js">` + nouveau contrôle qui refuse `unsafe-inline`, `unsafe-eval` et les scripts externes. Accueil : lien canonique, balises Open Graph, lien vers le jeu en pied de page. En-tête `Cross-Origin-Resource-Policy` ajouté.
 - **Testé** : html-validate OK, `node --check` OK, Chrome sans interface à 1280 px et 375 px avec la CSP du jeu : aucune erreur console, score, pause et vies fonctionnent.

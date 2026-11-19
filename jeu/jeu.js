@@ -21,6 +21,30 @@
     annonce: document.getElementById('annonce'),
   };
 
+
+  // ---------- Textes (la langue suit <html lang>) ----------
+  const TEXTES = {
+    fr: {
+      lancee: 'Partie lancée.', record: 'Nouveau record !', perdu: 'Bug en production…',
+      bilan: (sc, nv) => 'Score : ' + sc + ' · niveau ' + nv + '.', rejouer: 'Rejouer',
+      fin: (sc, rec) => 'Partie terminée. Score ' + sc + '.' + (rec ? ' Nouveau record.' : ''),
+      pause: 'Pause', pauseTexte: 'Espace ou le bouton pour reprendre.', reprendre: 'Reprendre',
+      pauseAnnonce: 'Pause.', reprise: 'Reprise.', niveau: (n) => 'Niveau ' + n,
+      enProd: 'En prod !', cafe: 'Café : ralenti', combo: 'Combo ',
+      code: ['function deployer() {', '  verifier(tests);', '  if (bugs.length) return;', '  publier();', '}'],
+    },
+    en: {
+      lancee: 'Game started.', record: 'New high score!', perdu: 'Bug in production…',
+      bilan: (sc, nv) => 'Score: ' + sc + ' · level ' + nv + '.', rejouer: 'Play again',
+      fin: (sc, rec) => 'Game over. Score ' + sc + '.' + (rec ? ' New high score.' : ''),
+      pause: 'Paused', pauseTexte: 'Press Space or the button to resume.', reprendre: 'Resume',
+      pauseAnnonce: 'Paused.', reprise: 'Resumed.', niveau: (n) => 'Level ' + n,
+      enProd: 'In prod!', cafe: 'Coffee: slow-mo', combo: 'Combo ',
+      code: ['function deploy() {', '  check(tests);', '  if (bugs.length) return;', '  release();', '}'],
+    },
+  };
+  const T = TEXTES[(document.documentElement.lang || 'fr').slice(0, 2)] || TEXTES.fr;
+
   const mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)');
   const theme = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -95,7 +119,7 @@
     });
     etat.joueur.x = L / 2;
     el.menu.hidden = true;
-    el.annonce.textContent = 'Partie lancée.';
+    el.annonce.textContent = T.lancee;
     majTableau();
     ecran.scrollIntoView({ block: 'center', behavior: mouvementReduit.matches ? 'auto' : 'smooth' });
     ecran.focus({ preventScroll: true });
@@ -106,26 +130,26 @@
     const nouveauRecord = etat.score > etat.record;
     if (nouveauRecord) { etat.record = etat.score; ecrireRecord(etat.score); }
     majTableau();
-    el.menuTitre.textContent = nouveauRecord ? 'Nouveau record !' : 'Bug en production…';
-    el.menuTexte.textContent = 'Score : ' + etat.score + ' · niveau ' + etat.niveau + '.';
-    el.jouer.textContent = 'Rejouer';
+    el.menuTitre.textContent = nouveauRecord ? T.record : T.perdu;
+    el.menuTexte.textContent = T.bilan(etat.score, etat.niveau);
+    el.jouer.textContent = T.rejouer;
     el.menu.hidden = false;
-    el.annonce.textContent = 'Partie terminée. Score ' + etat.score + '.' + (nouveauRecord ? ' Nouveau record.' : '');
+    el.annonce.textContent = T.fin(etat.score, nouveauRecord);
     el.jouer.focus({ preventScroll: true });
   }
 
   function basculerPause() {
     if (etat.phase === 'jeu') {
       etat.phase = 'pause';
-      el.menuTitre.textContent = 'Pause';
-      el.menuTexte.textContent = 'Espace ou le bouton pour reprendre.';
-      el.jouer.textContent = 'Reprendre';
+      el.menuTitre.textContent = T.pause;
+      el.menuTexte.textContent = T.pauseTexte;
+      el.jouer.textContent = T.reprendre;
       el.menu.hidden = false;
-      el.annonce.textContent = 'Pause.';
+      el.annonce.textContent = T.pauseAnnonce;
     } else if (etat.phase === 'pause') {
       etat.phase = 'jeu';
       el.menu.hidden = true;
-      el.annonce.textContent = 'Reprise.';
+      el.annonce.textContent = T.reprise;
       ecran.focus({ preventScroll: true });
     }
   }
@@ -171,8 +195,8 @@
     const niveau = 1 + Math.floor(etat.temps / 20);
     if (niveau !== etat.niveau) {
       etat.niveau = niveau;
-      texteFlottant(L / 2, H / 2, 'Niveau ' + niveau, couleurs.accent);
-      el.annonce.textContent = 'Niveau ' + niveau + '.';
+      texteFlottant(L / 2, H / 2, T.niveau(niveau), couleurs.accent);
+      el.annonce.textContent = T.niveau(niveau) + '.';
       majTableau();
     }
 
@@ -215,7 +239,7 @@
           etat.vies -= 1;
           etat.combo = 0;
           if (!mouvementReduit.matches) etat.tremble = 0.25;
-          texteFlottant(o.x, H - 20, 'En prod !', couleurs.bug);
+          texteFlottant(o.x, H - 20, T.enProd, couleurs.bug);
           majTableau();
           if (etat.vies <= 0) { finDePartie(); return; }
         }
@@ -255,7 +279,7 @@
     } else {
       etat.lent = 4;
       eclats(o.x, o.y, couleurs.cafe, 12);
-      texteFlottant(o.x, o.y - 10, 'Café : ralenti', couleurs.cafe);
+      texteFlottant(o.x, o.y - 10, T.cafe, couleurs.cafe);
     }
     majTableau();
   }
@@ -319,7 +343,7 @@
     // Lignes de code stylisées en arrière-plan
     ctx.font = '13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
     ctx.fillStyle = couleurs.bord;
-    const lignes = ['function deployer() {', '  verifier(tests);', '  if (bugs.length) return;', '  publier();', '}'];
+    const lignes = T.code;
     for (let i = 0; i < 12; i++) {
       ctx.fillText(String(i + 1).padStart(2, ' ') + '  ' + lignes[i % lignes.length], 16, 30 + i * 34);
     }
@@ -384,7 +408,7 @@
     if (etat.combo >= 5 && etat.phase === 'jeu') {
       ctx.textAlign = 'right';
       ctx.fillStyle = couleurs.accent;
-      ctx.fillText('Combo ' + etat.combo, L - 16, 24);
+      ctx.fillText(T.combo + etat.combo, L - 16, 24);
     }
     ctx.textAlign = 'left';
     ctx.textBaseline = 'alphabetic';
