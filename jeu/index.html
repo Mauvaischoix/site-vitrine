@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chasse aux bugs — mini-jeu</title>
+  <meta name="description" content="Chasse aux bugs : un mini-jeu en JavaScript natif, sans bibliothèque. Attrapez les bugs avant qu'ils n'arrivent en production.">
+  <link rel="canonical" href="https://site-vitrine-cuc.pages.dev/jeu/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6f5c'/%3E%3Cpath d='M9 22V10h4l3 7 3-7h4v12' stroke='white' stroke-width='2.5' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script src="/jeu/jeu.js" defer></script>
+</head>
+<body>
+  <header class="entete">
+    <div class="conteneur entete__ligne">
+      <a class="logo" href="/">Atelier Web</a>
+      <nav aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="conteneur jeu">
+      <h1>Chasse aux bugs</h1>
+      <p class="chapo">Attrapez les bugs avant qu'ils n'arrivent en production. Les tasses de café ralentissent le temps. Laissez passer les fonctionnalités vertes&nbsp;: les attraper coûte des points.</p>
+
+      <dl class="jeu__tableau">
+        <div><dt>Score</dt><dd id="score">0</dd></div>
+        <div><dt>Vies</dt><dd id="vies">3</dd></div>
+        <div><dt>Niveau</dt><dd id="niveau">1</dd></div>
+        <div><dt>Record</dt><dd id="record">0</dd></div>
+      </dl>
+
+      <div class="jeu__cadre">
+        <canvas id="ecran" width="720" height="480" aria-label="Zone de jeu" role="img">Votre navigateur ne permet pas d'afficher le jeu.</canvas>
+        <div class="jeu__menu" id="menu">
+          <p class="jeu__titre" id="menu-titre">Prêt à déboguer&nbsp;?</p>
+          <p id="menu-texte">Flèches ou A / D pour bouger, ou glissez le doigt. Espace pour la pause.</p>
+          <button type="button" class="bouton" id="jouer">Jouer</button>
+        </div>
+      </div>
+      <p class="jeu__annonce" id="annonce" aria-live="polite"></p>
+
+      <details class="jeu__details">
+        <summary>Comment c'est fait</summary>
+        <ul>
+          <li>JavaScript natif et Canvas 2D, aucune bibliothèque, aucun appel réseau.</li>
+          <li>Boucle de jeu à pas de temps fixe&nbsp;: même vitesse sur un écran à 60 ou 144&nbsp;Hz.</li>
+          <li>Clavier, souris et tactile&nbsp;; pause automatique quand l'onglet est caché.</li>
+          <li>Respecte le réglage «&nbsp;réduire les animations&nbsp;» et le mode sombre du système.</li>
+          <li>Le record reste dans votre navigateur (stockage local), rien n'est envoyé.</li>
+        </ul>
+      </details>
+    </div>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <p><a href="/">Retour à l'accueil</a></p>
+    </div>
+  </footer>
+</body>
+</html>
