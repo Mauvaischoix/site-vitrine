@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bug Hunt — mini game</title>
+  <meta name="description" content="Bug Hunt: a mini game in plain JavaScript, no library. Catch the bugs before they reach production.">
+  <link rel="canonical" href="https://site-vitrine-cuc.pages.dev/en/game/">
+  <link rel="alternate" hreflang="fr" href="https://site-vitrine-cuc.pages.dev/jeu/">
+  <link rel="alternate" hreflang="en" href="https://site-vitrine-cuc.pages.dev/en/game/">
+  <link rel="alternate" hreflang="x-default" href="https://site-vitrine-cuc.pages.dev/jeu/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f6f5c'/%3E%3Cpath d='M9 22V10h4l3 7 3-7h4v12' stroke='white' stroke-width='2.5' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script src="/jeu/jeu.js" defer></script>
+</head>
+<body>
+  <header class="entete">
+    <div class="conteneur entete__ligne">
+      <a class="logo" href="/en/">Mohamed Tanouti</a>
+      <nav aria-label="Main navigation">
+        <a href="/en/">Home</a>
+        <a href="/jeu/" hreflang="fr" lang="fr" aria-label="Version française">FR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="conteneur jeu">
+      <h1>Bug Hunt</h1>
+      <p class="chapo">A mini game written in plain JavaScript, with no library. Catch the bugs, let the features go by.</p>
+
+      <section class="explication" aria-labelledby="explication-titre">
+        <h2 id="explication-titre">How to play</h2>
+        <p class="explication__legende">Audio explanation (38 s). Everything that is said is written just below.</p>
+        <audio class="explication__audio" controls preload="none" src="/jeu/audio/explanation-en.mp3">Your browser cannot play audio: the full text is below.</audio>
+        <p class="explication__texte">Welcome to Bug Hunt. Your mission: stop the bugs before they reach production. At the bottom of the screen, you move the "debug" bar with the arrow keys, the A and D keys, your mouse or your finger. Catch the red bugs: each bug you catch earns points, and a streak of catches raises the multiplier. Let the green diamonds go by: they are features, and catching one costs fifteen points. The coffee cup slows the game down for four seconds. If a bug reaches the bottom of the screen, you lose a life. You have three lives, and the game speeds up every twenty seconds. Press Space to pause. The game uses no sound: all the information is shown on screen. Happy hunting!</p>
+        <p class="explication__credit">Male synthetic voice, made livelier in a cartoon style (faster and higher-pitched): Piper, “joe” voice (CC0 dataset). It is not the voice of any real famous person. <a href="/jeu/" hreflang="fr" lang="fr">Version française, avec audio en français</a></p>
+      </section>
+
+      <dl class="jeu__tableau">
+        <div><dt>Score</dt><dd id="score">0</dd></div>
+        <div><dt>Lives</dt><dd id="vies">3</dd></div>
+        <div><dt>Level</dt><dd id="niveau">1</dd></div>
+        <div><dt>High score</dt><dd id="record">0</dd></div>
+      </dl>
+
+      <div class="jeu__cadre">
+        <canvas id="ecran" width="720" height="480" aria-label="Game area" role="img">Your browser cannot display the game.</canvas>
+        <div class="jeu__menu" id="menu">
+          <p class="jeu__titre" id="menu-titre">Ready to debug?</p>
+          <p id="menu-texte">Arrow keys or A / D to move, or slide your finger. Space to pause.</p>
+          <button type="button" class="bouton" id="jouer">Play</button>
+        </div>
+      </div>
+      <p class="jeu__annonce" id="annonce" aria-live="polite"></p>
+
+      <details class="jeu__details">
+        <summary>How it is built</summary>
+        <ul>
+          <li>Plain JavaScript and Canvas 2D, no library, no network calls.</li>
+          <li>Fixed time-step game loop: same speed on a 60 or 144&nbsp;Hz screen.</li>
+          <li>Keyboard, mouse and touch; pauses automatically when the tab is hidden.</li>
+          <li>No sound: all information is visual and announced to screen readers.</li>
+          <li>Follows the system “reduce motion” setting and dark mode.</li>
+          <li>Your high score stays in your browser (local storage); nothing is sent.</li>
+        </ul>
+      </details>
+    </div>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <p><a href="/en/">Back to home</a></p>
+    </div>
+  </footer>
+</body>
+</html>

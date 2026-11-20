@@ -6,6 +6,23 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
 
 /*.css
+  Cache-Control: public, max-age=86400
+
+# Mini-jeu (FR /jeu/, EN /en/game/) : seules pages autorisées à exécuter du JavaScript, et uniquement nos propres fichiers.
+# Cette règle doit rester APRÈS « /* » (le « ! » retire la CSP posée plus haut).
+/jeu/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests
+
+/en/game/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests
+
+/*.mp3
+  Cache-Control: public, max-age=604800
+
+/*.js
   Cache-Control: public, max-age=86400

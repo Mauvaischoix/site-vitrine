@@ -39,10 +39,22 @@ jobs:
             grep -q "$h" _headers || { echo "::error::En-tête manquant dans _headers : $h"; exit 1; }
           done
 
+      - name: Aucune CSP affaiblie (unsafe-inline, unsafe-eval, scripts externes)
+        run: |
+          set -euo pipefail
+          if grep -nE "unsafe-inline|unsafe-eval|script-src[^;]*(https?:|\*)" _headers; then
+            echo "::error::CSP affaiblie dans _headers."
+            exit 1
+          fi
+
       - name: Pas de code bloqué par la CSP (style/script en ligne, scripts externes)
         run: |
           set -euo pipefail
-          if grep -rnE '\sstyle="|<style|<script|\son[a-z]+="' --include='*.html' .; then
+          # Seule exception : /jeu/ et /en/game/ peuvent charger son propre fichier /jeu/jeu.js (CSP dédiée dans _headers).
+          trouve=$(grep -rnE '\sstyle="|<style|<script|\son[a-z]+="' --include='*.html' . \
+            | grep -vE '^(\./)?(jeu|en/game)/index\.html:[0-9]+:  <script src="/jeu/jeu\.js" defer></script>$' || true)
+          if [ -n "$trouve" ]; then
+            echo "$trouve"
             echo "::error::Style ou script en ligne détecté : à déplacer dans styles.css (voir AI-MAINTENANCE.md)."
             exit 1
           fi
