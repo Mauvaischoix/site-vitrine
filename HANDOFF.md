@@ -4,6 +4,11 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (refonte : anglais, pages simples, formulaire actif)
+- **Fait** : clé Web3Forms en place (clé publique par conception, pas un secret) ; `/en/` au nouveau style (traduction complète, formulaire vers `/en/thanks/`) ; 404, pages légales FR/EN, `/merci/` et `/en/thanks/` au style « Natural Digital » ; `livre.css` supprimé (plus utilisé). Les pages du jeu gardent `styles.css`.
+- **Testé** : html-validate OK, contrôle CSP OK, Chrome : aucune erreur sur /en/, pages légales, 404, merci ; mobile sans défilement horizontal.
+- **Reste** : relecture et fusion par le propriétaire (PR #4 puis branche `revue/natural-digital`, ou directement cette branche qui contient tout) ; tester un envoi réel du formulaire sur l'aperçu.
+
 ## 2026-11-20 — Claude (refonte, suite)
 - **Fait** (branche `revue/natural-digital`) : chapitres I, II, IV, V (« De l'idée à la réalisation, une même main » : méthode en 6 étapes animée, IA utilisées, langages), VI (3 fiches projets : portfolio, jeu, équipe d'IA sur Telegram, avec captures sans information personnelle) ; tous les chapitres ont « Lire » ; chiffres romains corrigés sur mobile ; épilogue avec LinkedIn + formulaire (Web3Forms, CSP `form-action` limitée à api.web3forms.com sur / et /en/, page /merci/) ; page Confidentialité FR/EN mise à jour.
 - **Testé** : html-validate OK, contrôles CSP du workflow OK, Chrome 1440 et 390 px avec CSP : aucune erreur, pas de défilement horizontal, table des matières OK.
