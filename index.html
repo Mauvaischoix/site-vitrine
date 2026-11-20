@@ -42,12 +42,12 @@
       <p class="surtitre">Table des matières</p>
       <ol class="table__liste">
         <li><a href="#prologue"><span>Prologue</span>Qui je suis</a></li>
-        <li><a href="#chapitres"><span>I</span>Construire sur le terrain</a></li>
-        <li><a href="#chapitres"><span>II</span>Entreprendre et structurer</a></li>
+        <li><a href="#chapitre-1"><span>I</span>Construire sur le terrain</a></li>
+        <li><a href="#chapitre-2"><span>II</span>Entreprendre et structurer</a></li>
         <li><a href="#chapitre-3"><span>III</span>Piloter et fédérer</a></li>
-        <li><a href="#chapitres"><span>IV</span>Développer et convaincre</a></li>
-        <li><a href="#chapitres"><span>V</span>Explorer et innover</a></li>
-        <li><a href="#chapitres"><span>VI</span>Mes projets en action</a></li>
+        <li><a href="#chapitre-4"><span>IV</span>Développer et convaincre</a></li>
+        <li><a href="#chapitre-5"><span>V</span>Explorer et innover</a></li>
+        <li><a href="#chapitre-6"><span>VI</span>Mes projets en action</a></li>
         <li><a href="#epilogue"><span>Épilogue</span>Écrivons la suite ensemble</a></li>
       </ol>
       <button type="button" class="table__fermer" data-ferme-table>Fermer</button>
@@ -141,14 +141,66 @@
         <h2 id="titre-livre">Six chapitres, un même fil : faire aboutir.</h2>
       </div>
       <ol class="livre__chapitres">
-        <li class="chap" data-revele><span class="chap__num">I</span><div><h3>Construire sur le terrain</h3><p>De livreur à responsable de magasin chez Domino's Pizza.</p></div><span class="chap__etat">En écriture</span></li>
-        <li class="chap" data-revele><span class="chap__num">II</span><div><h3>Entreprendre et structurer</h3><p>Livreur indépendant pour Amazon, La Poste, Uber Eats et Deliveroo.</p></div><span class="chap__etat">En écriture</span></li>
-        <li class="chap chap--ouvert" data-revele><span class="chap__num">III</span><div><h3><a href="#chapitre-3">Piloter et fédérer</a></h3><p>Trois agences d'aide à domicile, une même exigence.</p></div><span class="chap__etat">Lire</span></li>
-        <li class="chap" data-revele><span class="chap__num">IV</span><div><h3>Développer et convaincre</h3><p>Prospection, négociation, CRM et relation client internationale.</p></div><span class="chap__etat">En écriture</span></li>
-        <li class="chap" data-revele><span class="chap__num">V</span><div><h3>Explorer et innover</h3><p>De l'idée à la réalisation, une même main.</p></div><span class="chap__etat">En écriture</span></li>
-        <li class="chap" data-revele><span class="chap__num">VI</span><div><h3>Mes projets en action</h3><p>Ce site, un jeu, une équipe d'IA pilotée depuis Telegram.</p></div><span class="chap__etat">En écriture</span></li>
+        <li class="chap" data-revele><span class="chap__num">I</span><div><h3><a href="#chapitre-1">Construire sur le terrain</a></h3><p>De livreur à responsable de magasin chez Domino's Pizza.</p></div><span class="chap__etat">Lire</span></li>
+        <li class="chap" data-revele><span class="chap__num">II</span><div><h3><a href="#chapitre-2">Entreprendre et structurer</a></h3><p>Livreur indépendant pour Amazon, La Poste, Uber Eats et Deliveroo.</p></div><span class="chap__etat">Lire</span></li>
+        <li class="chap" data-revele><span class="chap__num">III</span><div><h3><a href="#chapitre-3">Piloter et fédérer</a></h3><p>Trois agences d'aide à domicile, une même exigence.</p></div><span class="chap__etat">Lire</span></li>
+        <li class="chap" data-revele><span class="chap__num">IV</span><div><h3><a href="#chapitre-4">Développer et convaincre</a></h3><p>Prospection, négociation, CRM et relation client internationale.</p></div><span class="chap__etat">Lire</span></li>
+        <li class="chap" data-revele><span class="chap__num">V</span><div><h3><a href="#chapitre-5">Explorer et innover</a></h3><p>De l'idée à la réalisation, une même main.</p></div><span class="chap__etat">Lire</span></li>
+        <li class="chap" data-revele><span class="chap__num">VI</span><div><h3><a href="#chapitre-6">Mes projets en action</a></h3><p>Ce site, un jeu, une équipe d'IA pilotée depuis Telegram.</p></div><span class="chap__etat">Lire</span></li>
       </ol>
     </section>
+
+    <!-- CHAPITRE I -->
+    <article id="chapitre-1" class="chapitre" aria-labelledby="titre-chap1">
+      <header class="chapitre__tete" data-revele>
+        <span class="chapitre__numero" aria-hidden="true">I</span>
+        <p class="surtitre">Chapitre I · 2017 – 2020</p>
+        <h2 id="titre-chap1">Construire sur le terrain</h2>
+        <p class="chapo">Tout a commencé sur un scooter, dans les rues d'Avignon. Livreur chez Domino's Pizza, j'ai appris la cadence, la rigueur et ce que signifie un client qui attend. Trois ans plus tard, je dirigeais le magasin.</p>
+      </header>
+      <div class="duo">
+        <figure class="duo__visuel" data-revele data-anime>
+          <svg class="ascension" viewBox="0 0 360 240" role="img" aria-label="Une ascension en marches, de livreur à responsable de magasin">
+            <path class="ascension__marches" d="M20 210h80v-50h80v-50h80v-50h80"/>
+            <circle class="ascension__point" cx="60" cy="196" r="12"/>
+            <text x="20" y="232">livreur</text>
+            <text x="340" y="44" class="fin">responsable</text>
+          </svg>
+        </figure>
+        <ol class="etapes etapes--pile">
+          <li data-revele><span class="etapes__quand">Au départ</span><h3>Livreur</h3><p>Tenir les délais, connaître chaque rue, représenter la marque sur le pas de la porte, par tous les temps.</p></li>
+          <li data-revele><span class="etapes__quand">Trois ans plus tard</span><h3>Responsable de magasin</h3><p>Quinze collaborateurs à encadrer, un service à organiser aux heures de pointe, des commandes et des clients à accueillir sans jamais perdre le fil.</p></li>
+        </ol>
+      </div>
+      <p class="chapitre__transmission" data-revele>Le terrain enseigne ce qu'aucune école ne montre vraiment : une organisation se juge au moment précis où tout arrive en même temps.</p>
+      <ul class="competences" aria-label="Compétences mobilisées"><li>Encadrement d'équipe</li><li>Organisation du service</li><li>Relation client</li><li>Gestion des pics d'activité</li></ul>
+    </article>
+
+    <!-- CHAPITRE II -->
+    <article id="chapitre-2" class="chapitre" aria-labelledby="titre-chap2">
+      <header class="chapitre__tete" data-revele>
+        <span class="chapitre__numero" aria-hidden="true">II</span>
+        <p class="surtitre">Chapitre II · Micro-entreprise</p>
+        <h2 id="titre-chap2">Entreprendre et structurer</h2>
+        <p class="chapo">J'ai ensuite créé ma micro-entreprise pour réaliser des prestations de livraison en indépendant, pour Amazon, La Poste, Uber Eats et Deliveroo. Être son propre patron, c'est découvrir que chaque heure compte deux fois : une fois sur la route, une fois dans les comptes.</p>
+      </header>
+      <div class="duo">
+        <figure class="duo__visuel" data-revele data-anime>
+          <svg class="tournee" viewBox="0 0 360 240" role="img" aria-label="Plan de ville stylisé : une tournée relie quatre points de livraison">
+            <path class="tournee__rues" d="M0 60h360M0 130h360M0 200h360M70 0v240M170 0v240M270 0v240"/>
+            <path class="tournee__trajet" d="M40 200 C90 200 90 130 170 130 S250 50 270 60 S320 160 330 40"/>
+            <circle class="tournee__arret" cx="40" cy="200" r="8"/><circle class="tournee__arret" cx="170" cy="130" r="8"/><circle class="tournee__arret" cx="270" cy="60" r="8"/><circle class="tournee__arret" cx="330" cy="40" r="8"/>
+          </svg>
+        </figure>
+        <div class="trio trio--pile">
+          <section class="trio__carte" data-revele data-survol><h3>Organiser</h3><p>Planifier les tournées et les créneaux de plusieurs donneurs d'ordre, sans jamais en sacrifier un.</p></section>
+          <section class="trio__carte" data-revele data-survol><h3>Gérer</h3><p>Facturation, déclarations, suivi de la rentabilité : la partie invisible du métier, celle qui fait durer.</p></section>
+          <section class="trio__carte" data-revele data-survol><h3>Tenir parole</h3><p>Des délais respectés et une qualité de service constante, condition pour que les plateformes vous gardent.</p></section>
+        </div>
+      </div>
+      <p class="chapitre__transmission" data-revele>Entreprendre m'a donné un réflexe que je garde : raisonner en coûts, en délais et en résultats avant même de parler de projet.</p>
+      <ul class="competences" aria-label="Compétences mobilisées"><li>Création d'entreprise</li><li>Gestion administrative</li><li>Planification</li><li>Autonomie</li></ul>
+    </article>
 
     <!-- CHAPITRE III -->
     <article id="chapitre-3" class="chapitre" aria-labelledby="titre-chap3">
@@ -193,13 +245,156 @@
       </div>
     </article>
 
+
+    <!-- CHAPITRE IV -->
+    <article id="chapitre-4" class="chapitre" aria-labelledby="titre-chap4">
+      <header class="chapitre__tete" data-revele>
+        <span class="chapitre__numero" aria-hidden="true">IV</span>
+        <p class="surtitre">Chapitre IV · 2023 – 2026</p>
+        <h2 id="titre-chap4">Développer et convaincre</h2>
+        <p class="chapo">Le développement commercial est un art de la patience : cibler juste, revenir au bon moment, mesurer ce qui fonctionne et abandonner ce qui ne fonctionne pas. Je l'ai pratiqué au téléphone, en face à face et dans le CRM.</p>
+      </header>
+      <figure class="tunnel" data-revele data-anime>
+        <svg viewBox="0 0 900 200" role="img" aria-label="Le parcours d'un prospect : ciblage, premier contact, qualification, rendez-vous, signature, suivi dans le CRM">
+          <path class="tunnel__ligne" d="M70 90H830"/>
+          <g class="tunnel__etape"><circle cx="70" cy="90" r="30"/><text x="70" y="156">Ciblage</text></g>
+          <g class="tunnel__etape"><circle cx="222" cy="90" r="30"/><text x="222" y="156">Contact</text></g>
+          <g class="tunnel__etape"><circle cx="374" cy="90" r="30"/><text x="374" y="156">Qualification</text></g>
+          <g class="tunnel__etape"><circle cx="526" cy="90" r="30"/><text x="526" y="156">Rendez-vous</text></g>
+          <g class="tunnel__etape"><circle cx="678" cy="90" r="30"/><text x="678" y="156">Signature</text></g>
+          <g class="tunnel__etape tunnel__etape--fin"><circle cx="830" cy="90" r="30"/><text x="830" y="156">CRM</text></g>
+          <circle class="tunnel__jeton" cx="70" cy="90" r="9"/>
+        </svg>
+      </figure>
+      <div class="cartes-exp">
+        <section class="exp" data-revele data-survol><p class="exp__chiffre">2 000</p><h3>points de vente prospectés</h3><p class="exp__ou">Ma Petite Sponso · Comité de Handball des Bouches-du-Rhône · 2023 – 2024</p><p>Prospection à distance, négociation de partenariats, suivi des contacts et reporting par indicateurs dans le CRM.</p></section>
+        <section class="exp" data-revele data-survol><p class="exp__chiffre">B2B</p><h3>prescripteurs et partenaires</h3><p class="exp__ou">AIDADOMI · 2025 – 2026</p><p>Commerces de proximité, professionnels de santé, hôpitaux, assistantes sociales, caisses de retraite et assurances : un réseau construit visite après visite, du devis à la signature.</p></section>
+        <section class="exp" data-revele data-survol><p class="exp__chiffre">~30</p><h3>clients par jour</h3><p class="exp__ou">Enterprise Rent-A-Car · aéroport Marseille Provence · été 2026</p><p>Une clientèle majoritairement internationale, servie en anglais et en espagnol : contrats, litiges désamorcés, avis positifs.</p></section>
+      </div>
+      <p class="chapitre__transmission" data-revele>Un bon commercial ne vend pas un produit. Il comprend un besoin mieux que la personne qui l'exprime, puis il trouve la solution qui lui ressemble.</p>
+      <ul class="competences" aria-label="Compétences mobilisées"><li>Prospection multicanale</li><li>Négociation</li><li>CRM HubSpot</li><li>Indicateurs et reporting</li><li>Anglais B2</li><li>Espagnol B1</li></ul>
+    </article>
+
+    <!-- CHAPITRE V -->
+    <article id="chapitre-5" class="chapitre chapitre--fonce" aria-labelledby="titre-chap5">
+      <header class="chapitre__tete" data-revele>
+        <span class="chapitre__numero" aria-hidden="true">V</span>
+        <p class="surtitre">Chapitre V · depuis septembre 2026</p>
+        <h2 id="titre-chap5">Explorer et innover</h2>
+        <p class="chapo">Depuis septembre, je conduis un projet numérique complet : un site, un jeu, une équipe d'intelligences artificielles qui travaillent ensemble. Je ne suis pas développeur de formation. J'ai une méthode : décider de ce qu'il faut construire, le confier aux bons outils, vérifier chaque résultat.</p>
+      </header>
+
+      <section class="main-unique" aria-labelledby="titre-main">
+        <h3 id="titre-main" class="main-unique__titre" data-revele>De l'idée à la réalisation, une même main.</h3>
+        <p class="main-unique__texte" data-revele>Conception, direction et réalisation personnelles, avec l'appui d'outils d'intelligence artificielle. Aucun prestataire, aucune aide extérieure : chaque décision m'appartient, les IA en sont les instruments.</p>
+        <ol class="methode" data-anime>
+          <li data-revele><span>01</span><h4>L'idée</h4><p>Je définis le besoin et le résultat attendu.</p></li>
+          <li data-revele><span>02</span><h4>Le cadrage</h4><p>Je découpe le projet, je fixe les règles et les limites.</p></li>
+          <li data-revele><span>03</span><h4>Les consignes</h4><p>J'écris les instructions de chaque IA, selon son rôle.</p></li>
+          <li data-revele><span>04</span><h4>La production</h4><p>Les IA écrivent le code, chacune dans sa spécialité.</p></li>
+          <li data-revele><span>05</span><h4>La vérification</h4><p>Je relis, je teste, je fais contrôler la sécurité.</p></li>
+          <li data-revele><span>06</span><h4>La mise en ligne</h4><p>Publication automatique, puis entretien par l'équipe d'IA.</p></li>
+        </ol>
+      </section>
+
+      <div class="equipe">
+        <section class="equipe__bloc" data-revele>
+          <h3>Une équipe d'IA, des rôles distincts</h3>
+          <ul class="equipe__liste">
+            <li><strong>Claude</strong> (Anthropic) · conception, architecture et construction</li>
+            <li><strong>Gemini 3.8 Flash</strong> via Antigravity (Google) · chef d'équipe</li>
+            <li><strong>DeepSeek V4.1 Flash</strong> · développeur principal</li>
+            <li><strong>Hy4 Flash</strong> · développeur de relève</li>
+            <li><strong>MiMo-V2.6-Flash</strong> · relecture de sécurité</li>
+            <li><strong>Nemotron</strong> (NVIDIA) et <strong>GLM-4.7-Flash</strong> (Z.ai) · second avis</li>
+            <li><strong>Qwen</strong> (Alibaba) · modèles locaux, sans quota</li>
+            <li><strong>OpenCode</strong> pour les faire travailler, <strong>Telegram</strong> pour les piloter</li>
+          </ul>
+        </section>
+        <section class="equipe__bloc" data-revele>
+          <h3>Les langages du projet</h3>
+          <ul class="langages"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>Bash</li><li>YAML</li></ul>
+          <p>HTML et CSS pour le site, JavaScript pour le jeu et ce livre, Python pour le système de messagerie entre les IA, Bash pour les scripts du serveur, YAML pour les vérifications automatiques sur GitHub.</p>
+        </section>
+      </div>
+    </article>
+
+    <!-- CHAPITRE VI -->
+    <article id="chapitre-6" class="chapitre" aria-labelledby="titre-chap6">
+      <header class="chapitre__tete" data-revele>
+        <span class="chapitre__numero" aria-hidden="true">VI</span>
+        <p class="surtitre">Chapitre VI · Réalisations</p>
+        <h2 id="titre-chap6">Mes projets en action</h2>
+        <p class="chapo">Trois réalisations, menées de l'idée à la mise en ligne. Chacune répond à une question simple : qu'est-ce que je voulais prouver, et comment je m'y suis pris.</p>
+      </header>
+      <div class="projets">
+        <article class="projet" data-revele>
+          <figure class="projet__visuel"><img src="/img/capture-site.webp" width="1200" height="750" alt="Capture d'écran de la page d'accueil de ce portfolio" loading="lazy"></figure>
+          <div class="projet__texte">
+            <h3>Ce portfolio</h3>
+            <dl>
+              <dt>Pourquoi</dt><dd>Montrer plutôt que raconter.</dd>
+              <dt>Objectif</dt><dd>Un site bilingue, rapide, accessible et sécurisé, hébergé gratuitement.</dd>
+              <dt>Comment</dt><dd>HTML, CSS et JavaScript ; publication automatique depuis GitHub vers Cloudflare, avec des contrôles de sécurité à chaque modification.</dd>
+              <dt>Ce qu'il démontre</dt><dd>Gestion de projet, expérience utilisateur, sécurité web, référencement.</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="projet" data-revele>
+          <figure class="projet__visuel"><img src="/img/capture-jeu.webp" width="1200" height="750" alt="Capture d'écran du mini-jeu Chasse aux bugs" loading="lazy"></figure>
+          <div class="projet__texte">
+            <h3>Chasse aux bugs, le jeu</h3>
+            <dl>
+              <dt>Pourquoi</dt><dd>Prouver qu'une idée peut devenir une expérience jouable.</dd>
+              <dt>Objectif</dt><dd>Un jeu court, bilingue, jouable sans le son, au clavier, à la souris ou au doigt.</dd>
+              <dt>Comment</dt><dd>JavaScript natif et Canvas, sans bibliothèque ; explication audio accompagnée de son texte intégral.</dd>
+              <dt>Ce qu'il démontre</dt><dd>Conception d'expérience, logique, accessibilité, tests.</dd>
+            </dl>
+            <a class="bouton bouton--petit" href="/jeu/">Jouer</a>
+          </div>
+        </article>
+        <article class="projet" data-revele>
+          <figure class="projet__visuel projet__visuel--tel"><img src="/img/capture-telegram.webp" width="640" height="766" alt="Capture d'écran Telegram : une question posée à l'équipe, l'aiguilleur transmet à l'IA de sécurité, qui répond" loading="lazy"></figure>
+          <div class="projet__texte">
+            <h3>Une équipe d'IA pilotée depuis Telegram</h3>
+            <dl>
+              <dt>Pourquoi</dt><dd>Faire travailler plusieurs IA comme une équipe, et garder la main depuis un téléphone.</dd>
+              <dt>Objectif</dt><dd>Confier une tâche par simple message et recevoir le résultat au même endroit.</dd>
+              <dt>Comment</dt><dd>Python sur un serveur Linux ; un aiguilleur choisit l'IA adaptée ; des garde-fous limitent les échanges, permettent l'arrêt immédiat et tiennent les IA à l'écart des secrets.</dd>
+              <dt>Ce qu'il démontre</dt><dd>Architecture, sécurité, pilotage, sens du concret.</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </article>
+
     <!-- ÉPILOGUE -->
     <section id="epilogue" class="epilogue" aria-labelledby="titre-epilogue">
       <p class="surtitre">Épilogue</p>
       <h2 id="titre-epilogue">Écrivons la suite ensemble.</h2>
       <p>Une alternance, un projet à faire naître, une équipe à structurer : parlons-en. Tout peut se faire par écrit.</p>
-      <p class="epilogue__note">Le formulaire de contact arrive dans la prochaine version. En attendant :</p>
-      <a class="bouton" href="https://www.linkedin.com/in/mohamed-t-906a33336" rel="noopener">M'écrire sur LinkedIn</a>
+      <div class="contact">
+        <div class="contact__choix">
+          <h3>Le plus direct</h3>
+          <p>Un message sur LinkedIn, je réponds rapidement.</p>
+          <a class="bouton" href="https://www.linkedin.com/in/mohamed-t-906a33336" rel="noopener">Me contacter sur LinkedIn</a>
+        </div>
+        <form class="contact__formulaire" action="https://api.web3forms.com/submit" method="post">
+          <h3>Ou par e-mail</h3>
+          <input type="hidden" name="access_key" value="CLE_WEB3FORMS_A_REMPLACER">
+          <input type="hidden" name="subject" value="Nouveau message depuis le portfolio">
+          <input type="hidden" name="redirect" value="https://les-experiences-de-mohamed-tanouti.pages.dev/merci/">
+          <input type="checkbox" name="botcheck" class="visuellement-cache" tabindex="-1" aria-hidden="true">
+          <label for="f-nom">Nom</label>
+          <input id="f-nom" name="name" type="text" autocomplete="name" required maxlength="100">
+          <label for="f-mail">E-mail</label>
+          <input id="f-mail" name="email" type="email" autocomplete="email" required maxlength="150">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" rows="5" required maxlength="3000"></textarea>
+          <p class="contact__mention">Votre message m'est transmis par e-mail. Ce site ne conserve aucune donnée et ne dépose aucun cookie. <a href="/confidentialite/">En savoir plus</a></p>
+          <button class="bouton" type="submit">Envoyer le message</button>
+        </form>
+      </div>
     </section>
   </main>
 

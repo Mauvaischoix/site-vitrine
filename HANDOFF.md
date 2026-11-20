@@ -4,6 +4,11 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (refonte, suite)
+- **Fait** (branche `revue/natural-digital`) : chapitres I, II, IV, V (« De l'idée à la réalisation, une même main » : méthode en 6 étapes animée, IA utilisées, langages), VI (3 fiches projets : portfolio, jeu, équipe d'IA sur Telegram, avec captures sans information personnelle) ; tous les chapitres ont « Lire » ; chiffres romains corrigés sur mobile ; épilogue avec LinkedIn + formulaire (Web3Forms, CSP `form-action` limitée à api.web3forms.com sur / et /en/, page /merci/) ; page Confidentialité FR/EN mise à jour.
+- **Testé** : html-validate OK, contrôles CSP du workflow OK, Chrome 1440 et 390 px avec CSP : aucune erreur, pas de défilement horizontal, table des matières OK.
+- **Reste** : clé Web3Forms (le propriétaire crée la clé avec son e-mail, puis remplacer `CLE_WEB3FORMS_A_REMPLACER`) ; version anglaise au nouveau style ; 404 et pages légales au nouveau style ; retrait de `livre.css`.
+
 ## 2026-11-20 — Claude (refonte « Natural Digital », prototype)
 - **Fait** (branche `revue/natural-digital`, aperçu Cloudflare, pas de fusion automatique) : nouvelle page d'accueil FR (`index.html`, `nd.css`) : prologue avec portrait, savoir-faire, personnalité (boxe 8 bits originale en SVG, théâtre en illustration IA créditée), sommaire du livre, chapitre III complet, épilogue. Monogramme MT. qui ouvre la table des matières. `livre.js` (table des matières, apparitions, barre de lecture, curseur discret sur ordinateur, profondeur du portrait) ; CSP dédiée `script-src 'self'` sur `/` et `/en/` (accord du propriétaire) ; vérifications GitHub adaptées (exception limitée à `<script src="/livre.js" defer></script>`). Polices Manrope et DM Serif Display auto-hébergées (OFL), images en WebP.
 - **Testé** : html-validate OK, contrôles CSP du workflow OK, Chrome sans interface 1440 et 390 px avec la CSP : aucune erreur console, table des matières (ouverture, Échap), pas de défilement horizontal.
