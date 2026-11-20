@@ -4,6 +4,10 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (signature)
+- Fait : « Du terrain au digital » remplacé par « De l'idée au résultat » (EN « From idea to results ») dans la signature, la description et l'aperçu de partage, à la demande du propriétaire. Branche `ia/signature` (fusion auto).
+- À noter : l'aperçu LinkedIn peut garder l'ancien texte en cache (Post Inspector de LinkedIn pour rafraîchir).
+
 ## 2026-11-20 — Claude (publication de la refonte)
 - Fait : le propriétaire a écrit « fusionne ». Branche `ia/publication-natural-digital` (= revue/natural-digital + cette entrée) poussée → PR automatique, fusion si vérifications vertes. Contient aussi le contenu de la PR #4, qui devient inutile (à fermer).
 - Prochaine action : vérifier https://les-experiences-de-mohamed-tanouti.pages.dev (titre, CSP, formulaire) ; carrousel LinkedIn prêt dans outils-gratuits-claude\linkedin.
