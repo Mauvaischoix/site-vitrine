@@ -4,6 +4,10 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (retours du propriétaire sur le portfolio)
+- **Fait** : boxeurs en pixel art à la place des gants ; chapitre AIDADOMI réécrit (positif, leadership, sans évoquer de difficultés) ; « Entreprendre » précise livreur indépendant / logistique du dernier kilomètre ; textes des chapitres IV et V plus professionnels (coût zéro = parti pris) ; pied de page « © 2026 Mohamed Tanouti · Tous droits réservés » + Mentions légales, Confidentialité, Cookies (pages FR et EN créées), Admin (lien vers le tableau de bord Cloudflare, à confirmer).
+- **En attente du propriétaire** : nom de l'adresse du site (nouveau projet Cloudflare Pages ou nom de domaine), voix du jeu (voix d'acteur célèbre refusée : droits de la personne ; proposer une voix de synthèse libre plus enthousiaste).
+
 ## 2026-11-20 — Claude (portfolio « livre interactif »)
 - **Fait** (branche `revue/jeu-et-seo`, relue par le propriétaire avant fusion, pas de fusion automatique) : l'accueil « Atelier Web » est remplacé par le portfolio de Mohamed Tanouti, en FR (`/`) et EN (`/en/`) : prologue, 6 chapitres, épilogue. Animations en CSS et SVG uniquement (CSP `script-src 'none'` conservée sur ces pages). Styles dans `livre.css` (pages du jeu et 404 gardent `styles.css`). Lien vers le jeu dans le chapitre V et le pied de page. Logo des pages du jeu : « Mohamed Tanouti ».
 - **Règles de contenu** : aucun chiffre interne AIDADOMI (décision du propriétaire), seulement ceux du CV. Aucun téléphone, adresse, e-mail personnel. Le site dit qu'il a été réalisé avec l'aide de l'IA.

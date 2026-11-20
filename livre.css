@@ -172,12 +172,15 @@ strong { color: #fff; }
 .illu text { fill: var(--doux); font: 600 12px var(--mono); }
 .illu text.fin { text-anchor: end; }
 
-.gant path { fill: var(--rose); }
-.gant rect { fill: #ffd6ea; }
-.gant--gauche { animation: direct-gauche 2.4s ease-in-out infinite; }
-.gant--droit { animation: direct-droit 2.4s ease-in-out infinite; }
-.impact path { stroke: var(--cyan); stroke-width: 3; stroke-linecap: round; fill: none; animation: impact 2.4s infinite; }
-
+.illu--pixel { shape-rendering: crispEdges; image-rendering: pixelated; }
+.pix__sol { fill: rgba(140, 200, 255, .25); }
+.pix--a { animation: pix-avance 1.6s steps(2, end) infinite; }
+.pix--a .pix__poing { animation: pix-direct 1.6s steps(1, end) infinite; }
+.pix--b .pix__poing { animation: pix-direct 1.6s steps(1, end) .8s infinite; }
+.pix__choc rect { fill: #ffcc33; animation: pix-choc 1.6s steps(1, end) infinite; }
+@keyframes pix-avance { 0% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes pix-direct { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(14px); } 50% { transform: translateX(0); } }
+@keyframes pix-choc { 0%, 20%, 40%, 70%, 90%, 100% { opacity: 0; } 25%, 75% { opacity: 1; } }
 .faisceau { fill: rgba(255, 245, 200, .07); animation: projecteur 4s ease-in-out infinite; transform-origin: 120px 0; }
 .masque path:first-child { stroke-width: 2; }
 .masque--rire path:first-child { fill: var(--cyan); }
@@ -328,3 +331,14 @@ a:focus-visible, .bouton:focus-visible { outline: 3px solid var(--cyan); outline
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .bulle { opacity: 1; }
 }
+
+/* ---------- Pied de page et pages légales ---------- */
+.pied__liens { margin-top: 8px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+.pied__liens a { color: var(--doux); text-decoration: none; }
+.pied__liens a:hover, .pied__liens a:focus-visible { color: var(--cyan); }
+.pied p { text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; }
+.langue--seule { margin-left: auto; }
+.legal { max-width: 760px; }
+.legal h1 { font-size: clamp(2rem, 4vw, 3rem); }
+.legal h2 { font-size: 1.2rem; margin-top: 2em; color: var(--cyan); }
+.legal p { color: var(--doux); }
