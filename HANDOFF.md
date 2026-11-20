@@ -4,6 +4,10 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (formulaire : retour sur la page après envoi)
+- Fait : l'envoi en arrière-plan ne s'affichait pas chez le propriétaire (cause probable : ancien livre.js en cache 24 h). Remplacé par sa proposition : Web3Forms renvoie sur la même page `#message-envoye` → page rechargée, champs vides, message vert affiché en CSS `:target`. `connect-src` remis à `'none'`. `?v=3` sur nd.css et livre.js pour forcer le rechargement (exception adaptée dans verifications.yml).
+- Reste : e-mail de confirmation à l'expéditeur (payant chez Web3Forms).
+
 ## 2026-11-20 — Claude (formulaire : confirmation sur la page)
 - Fait : envoi en arrière-plan (livre.js → api.web3forms.com, `connect-src` ajouté pour `/` et `/en/`), message vert avec coche, champs vidés ; erreur en orange. Sans JS : envoi classique + page merci. Testé (Playwright, réponse simulée) FR/EN, html-validate OK.
 - Reste : e-mail de confirmation à l'expéditeur = option payante de Web3Forms (Pro), non faite. Fusion sur « fusionne » du propriétaire.
