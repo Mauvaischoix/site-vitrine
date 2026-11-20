@@ -4,6 +4,12 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (portfolio « livre interactif »)
+- **Fait** (branche `revue/jeu-et-seo`, relue par le propriétaire avant fusion, pas de fusion automatique) : l'accueil « Atelier Web » est remplacé par le portfolio de Mohamed Tanouti, en FR (`/`) et EN (`/en/`) : prologue, 6 chapitres, épilogue. Animations en CSS et SVG uniquement (CSP `script-src 'none'` conservée sur ces pages). Styles dans `livre.css` (pages du jeu et 404 gardent `styles.css`). Lien vers le jeu dans le chapitre V et le pied de page. Logo des pages du jeu : « Mohamed Tanouti ».
+- **Règles de contenu** : aucun chiffre interne AIDADOMI (décision du propriétaire), seulement ceux du CV. Aucun téléphone, adresse, e-mail personnel. Le site dit qu'il a été réalisé avec l'aide de l'IA.
+- **Testé** : html-validate 11.17.0 OK, contrôle CSP du workflow OK, Chrome sans interface 1280 et 375 px (pas de défilement horizontal, aucune erreur console), animations désactivées si « réduire les animations ».
+- **Reste** : logos officiels (fichiers fournis par le propriétaire), formulaire de contact (service d'envoi + Turnstile), photo. Toute modification de texte : dans les deux langues.
+
 ## 2026-11-20 — Claude (bilingue + accessibilité)
 - **Fait** (même branche `ia/jeu-et-seo`) : site en français et en anglais (`/en/`, `/en/game/`, liens `hreflang`, bouton FR/EN, 404 bilingue). Jeu bilingue (textes choisis selon `<html lang>`). Explication du jeu en audio FR et EN (`jeu/audio/`, voix de synthèse Piper : SIWIS CC BY 4.0, LJ Speech domaine public) avec **texte intégral affiché** (accessible aux personnes sourdes et malentendantes). Le jeu n'utilise aucun son. Contact précisé « tout par écrit, pas besoin de téléphoner ».
 - **Testé** : html-validate OK ; Chrome sans interface, CSP du jeu appliquée : audio chargé (41 s FR, 43 s EN), jeu et pause en FR et EN, aucune erreur console.
