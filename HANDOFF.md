@@ -4,6 +4,10 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (publication de la refonte)
+- Fait : le propriétaire a écrit « fusionne ». Branche `ia/publication-natural-digital` (= revue/natural-digital + cette entrée) poussée → PR automatique, fusion si vérifications vertes. Contient aussi le contenu de la PR #4, qui devient inutile (à fermer).
+- Prochaine action : vérifier https://les-experiences-de-mohamed-tanouti.pages.dev (titre, CSP, formulaire) ; carrousel LinkedIn prêt dans outils-gratuits-claude\linkedin.
+
 ## 2026-11-20 — Claude (formulaire : retour sur la page après envoi)
 - Fait : l'envoi en arrière-plan ne s'affichait pas chez le propriétaire (cause probable : ancien livre.js en cache 24 h). Remplacé par sa proposition : Web3Forms renvoie sur la même page `#message-envoye` → page rechargée, champs vides, message vert affiché en CSS `:target`. `connect-src` remis à `'none'`. `?v=3` sur nd.css et livre.js pour forcer le rechargement (exception adaptée dans verifications.yml).
 - Reste : e-mail de confirmation à l'expéditeur (payant chez Web3Forms).
