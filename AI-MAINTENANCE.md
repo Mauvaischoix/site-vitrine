@@ -13,6 +13,10 @@ C'est volontaire : moins de code = moins de failles et presque pas de maintenanc
 | `index.html` | page d'accueil (tout le contenu) |
 | `styles.css` | styles (couleurs en variables dans `:root`, mode sombre automatique) |
 | `404.html` | page « introuvable » |
+| `jeu/` | mini-jeu « Chasse aux bugs » (`index.html` + `jeu.js` + `audio/`, seule page avec JavaScript) |
+| `en/` | version anglaise (`en/index.html`, `en/game/index.html`) |
+
+Accessibilité (sourds et malentendants) : aucune information uniquement sonore ; tout audio est accompagné de son texte intégral visible ; contact par écrit.
 | `_headers` | en-têtes de sécurité appliqués par Cloudflare Pages (CSP stricte) |
 | `robots.txt` | autorise l'indexation Google |
 | `HANDOFF.md` | passage de relais entre IA — à lire en arrivant, à mettre à jour en partant |
@@ -33,10 +37,10 @@ C'est volontaire : moins de code = moins de failles et presque pas de maintenanc
 
 ## Règles de modification
 1. Toujours une branche `ia/<sujet-court>` (jamais `main`).
-2. **Pas de JavaScript, de script externe, de police externe ni d'iframe** sans mise à jour de `_headers` ET accord du propriétaire (la CSP bloque tout le reste, c'est voulu).
+2. **Pas de JavaScript, de script externe, de police externe ni d'iframe** sans mise à jour de `_headers` ET accord du propriétaire (la CSP bloque tout le reste, c'est voulu). Seule exception accordée (20/11/2026) : `/jeu/` charge son propre `/jeu/jeu.js` (CSP dédiée, jamais de `unsafe-inline` ni de script externe).
 3. Pas d'attribut `style="..."` ni de `<style>` dans le HTML (bloqué par la CSP) : tout va dans `styles.css`.
 4. Images : dans `/images`, formats WebP/AVIF, largeur ≤ 1600 px, attribut `alt` obligatoire.
-5. Textes : français, phrases courtes. Aucun faux avis, faux chiffre ou fausse référence client.
+5. Textes : **français ET anglais** (`/` et `/en/`, `/jeu/` et `/en/game/`) ; toute modification se fait dans les deux langues. Phrases courtes. Aucun faux avis, faux chiffre ou fausse référence client.
 6. Aucune donnée personnelle ni secret dans le dépôt (il est public).
 7. Après chaque modification : vérifier l'affichage mobile (largeur 375 px) et ordinateur.
 
