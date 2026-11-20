@@ -50,9 +50,10 @@ jobs:
       - name: Pas de code bloqué par la CSP (style/script en ligne, scripts externes)
         run: |
           set -euo pipefail
-          # Seule exception : /jeu/ et /en/game/ peuvent charger son propre fichier /jeu/jeu.js (CSP dédiée dans _headers).
+          # Exceptions : /jeu/ et /en/game/ chargent /jeu/jeu.js ; l'accueil FR et EN charge /livre.js (CSP dédiées dans _headers).
           trouve=$(grep -rnE '\sstyle="|<style|<script|\son[a-z]+="' --include='*.html' . \
-            | grep -vE '^(\./)?(jeu|en/game)/index\.html:[0-9]+:  <script src="/jeu/jeu\.js" defer></script>$' || true)
+            | grep -vE '^(\./)?(jeu|en/game)/index\.html:[0-9]+:  <script src="/jeu/jeu\.js" defer></script>$' \
+            | grep -vE '^(\./)?(en/)?index\.html:[0-9]+:  <script src="/livre\.js" defer></script>$' || true)
           if [ -n "$trouve" ]; then
             echo "$trouve"
             echo "::error::Style ou script en ligne détecté : à déplacer dans styles.css (voir AI-MAINTENANCE.md)."

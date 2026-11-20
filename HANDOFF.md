@@ -4,6 +4,12 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (refonte « Natural Digital », prototype)
+- **Fait** (branche `revue/natural-digital`, aperçu Cloudflare, pas de fusion automatique) : nouvelle page d'accueil FR (`index.html`, `nd.css`) : prologue avec portrait, savoir-faire, personnalité (boxe 8 bits originale en SVG, théâtre en illustration IA créditée), sommaire du livre, chapitre III complet, épilogue. Monogramme MT. qui ouvre la table des matières. `livre.js` (table des matières, apparitions, barre de lecture, curseur discret sur ordinateur, profondeur du portrait) ; CSP dédiée `script-src 'self'` sur `/` et `/en/` (accord du propriétaire) ; vérifications GitHub adaptées (exception limitée à `<script src="/livre.js" defer></script>`). Polices Manrope et DM Serif Display auto-hébergées (OFL), images en WebP.
+- **Testé** : html-validate OK, contrôles CSP du workflow OK, Chrome sans interface 1440 et 390 px avec la CSP : aucune erreur console, table des matières (ouverture, Échap), pas de défilement horizontal.
+- **Reste** : chapitres I, II, IV, V, VI ; version anglaise au nouveau style ; formulaire de contact ; 404 et pages légales au nouveau style ; captures d'écran (jeu, site, Telegram) ; retrait de `livre.css` quand plus utilisé.
+- **Décisions** : voir `claude/refonte-natural-digital.md` dans le projet Claude.
+
 ## 2026-11-20 — Claude (retours du propriétaire sur le portfolio)
 - **Fait** : boxeurs en pixel art à la place des gants ; chapitre AIDADOMI réécrit (positif, leadership, sans évoquer de difficultés) ; « Entreprendre » précise livreur indépendant / logistique du dernier kilomètre ; textes des chapitres IV et V plus professionnels (coût zéro = parti pris) ; pied de page « © 2026 Mohamed Tanouti · Tous droits réservés » + Mentions légales, Confidentialité, Cookies (pages FR et EN créées), Admin (lien vers le tableau de bord Cloudflare, à confirmer).
 - **Voix du jeu** : remplacée par une voix de synthèse masculine plus enthousiaste façon dessin animé (Piper « pierre » UPMC, CC BY-SA 4.0 ; « joe », CC0 ; accélérée et plus aiguë avec ffmpeg), crédits mis à jour (jeu + mentions légales). Lien « Admin » retiré (décision du propriétaire).
