@@ -1,5 +1,5 @@
-/* livre.js — interactions du portfolio (table des matières, apparitions, curseur, profondeur).
-   Aucun appel réseau, aucune bibliothèque. Le site reste entièrement lisible sans ce fichier. */
+/* livre.js — interactions du portfolio (table des matières, apparitions, curseur, profondeur, formulaire).
+   Seul appel réseau : l'envoi du formulaire de contact à Web3Forms. Aucune bibliothèque. Le site reste entièrement lisible sans ce fichier. */
 (function () {
   "use strict";
   var doc = document.documentElement;
@@ -68,6 +68,60 @@
     };
     window.addEventListener("scroll", maj, { passive: true });
     maj();
+  }
+
+  /* 3 bis. Formulaire : envoi sans quitter la page, confirmation verte, champs vidés.
+     Sans JavaScript, le formulaire s'envoie normalement et redirige vers la page de remerciement. */
+  var formulaire = document.querySelector(".contact__formulaire");
+  var retour = formulaire && formulaire.querySelector(".contact__retour");
+  if (formulaire && retour && window.fetch && window.FormData) {
+    var en = doc.lang.indexOf("en") === 0;
+    var textes = en
+      ? { ok: "Message sent. Thank you, I will get back to you soon.", ko: "Sending failed. Please try again or contact me on LinkedIn.", envoi: "Sending…" }
+      : { ok: "Message envoyé. Merci, je vous réponds rapidement.", ko: "L'envoi a échoué. Réessayez ou écrivez-moi sur LinkedIn.", envoi: "Envoi…" };
+    var NS = "http://www.w3.org/2000/svg";
+    var afficher = function (succes) {
+      retour.textContent = "";
+      retour.classList.toggle("contact__retour--erreur", !succes);
+      if (succes) {
+        var svg = document.createElementNS(NS, "svg");
+        svg.setAttribute("viewBox", "0 0 20 20");
+        svg.setAttribute("aria-hidden", "true");
+        var c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", "10"); c.setAttribute("cy", "10"); c.setAttribute("r", "9");
+        c.setAttribute("fill", "none"); c.setAttribute("stroke", "currentColor"); c.setAttribute("stroke-width", "1.6");
+        var t = document.createElementNS(NS, "path");
+        t.setAttribute("d", "M6 10.5l2.6 2.6L14 7.6");
+        t.setAttribute("fill", "none"); t.setAttribute("stroke", "currentColor"); t.setAttribute("stroke-width", "1.8");
+        t.setAttribute("stroke-linecap", "round"); t.setAttribute("stroke-linejoin", "round");
+        svg.appendChild(c); svg.appendChild(t);
+        retour.appendChild(svg);
+      }
+      retour.appendChild(document.createTextNode(succes ? textes.ok : textes.ko));
+      retour.hidden = false;
+    };
+    formulaire.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var envoyer = formulaire.querySelector("[type=submit]");
+      var libelle = envoyer.textContent;
+      envoyer.disabled = true;
+      envoyer.textContent = textes.envoi;
+      retour.hidden = true;
+      var donnees = {};
+      new FormData(formulaire).forEach(function (v, k) { if (k !== "redirect") donnees[k] = v; });
+      fetch(formulaire.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(donnees)
+      }).then(function (r) { return r.json(); })
+        .then(function (rep) {
+          var ok = rep && rep.success === true;
+          if (ok) formulaire.reset();
+          afficher(ok);
+        })
+        .catch(function () { afficher(false); })
+        .then(function () { envoyer.disabled = false; envoyer.textContent = libelle; });
+    });
   }
 
   if (reduit || !finPointeur) return;

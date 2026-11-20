@@ -264,6 +264,11 @@ p { margin: 0 0 1em; }
 .contact__mention { font-size: .82rem; margin: 8px 0; }
 .contact__mention a { color: var(--terracotta); }
 .contact__formulaire .bouton { justify-self: start; border: 0; cursor: pointer; font: inherit; font-weight: 700; }
+.contact__formulaire .contact__retour { display: flex; align-items: center; gap: 8px; margin: 6px 0 0; max-width: none; font-size: .88rem; font-weight: 600; color: #8fd19e; }
+.contact__formulaire .contact__retour[hidden] { display: none; }
+.contact__retour svg { flex: none; width: 18px; height: 18px; }
+.contact__formulaire .contact__retour--erreur { color: #f2a48a; }
+.contact__formulaire .bouton[disabled] { opacity: .6; cursor: wait; }
 .merci { width: var(--large); margin: 0 auto; min-height: 100svh; display: grid; align-content: center; justify-items: start; }
 
 @media (max-width: 900px) {

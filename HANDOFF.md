@@ -4,6 +4,11 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-20 — Claude (formulaire : confirmation sur la page)
+- Fait : envoi en arrière-plan (livre.js → api.web3forms.com, `connect-src` ajouté pour `/` et `/en/`), message vert avec coche, champs vidés ; erreur en orange. Sans JS : envoi classique + page merci. Testé (Playwright, réponse simulée) FR/EN, html-validate OK.
+- Reste : e-mail de confirmation à l'expéditeur = option payante de Web3Forms (Pro), non faite. Fusion sur « fusionne » du propriétaire.
+- Prochaine action : tester l'aperçu revue-natural-digital après push.
+
 ## 2026-11-20 — Claude (refonte : anglais, pages simples, formulaire actif)
 - **Fait** : clé Web3Forms en place (clé publique par conception, pas un secret) ; `/en/` au nouveau style (traduction complète, formulaire vers `/en/thanks/`) ; 404, pages légales FR/EN, `/merci/` et `/en/thanks/` au style « Natural Digital » ; `livre.css` supprimé (plus utilisé). Les pages du jeu gardent `styles.css`.
 - **Testé** : html-validate OK, contrôle CSP OK, Chrome : aucune erreur sur /en/, pages légales, 404, merci ; mobile sans défilement horizontal.
