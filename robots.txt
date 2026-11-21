@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://les-experiences-de-mohamed-tanouti.pages.dev/sitemap.xml
