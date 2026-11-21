@@ -42,7 +42,8 @@ jobs:
       - name: Aucune CSP affaiblie (unsafe-inline, unsafe-eval, scripts externes)
         run: |
           set -euo pipefail
-          if grep -nE "unsafe-inline|unsafe-eval|script-src[^;]*(https?:|\*)" _headers; then
+          # Seule exception externe autorisée : le script de mesure d'audience Cloudflare (accord du propriétaire, 21/11/2026).
+          if sed 's#https://static\.cloudflareinsights\.com##g' _headers | grep -nE "unsafe-inline|unsafe-eval|script-src[^;]*(https?:|\*)"; then
             echo "::error::CSP affaiblie dans _headers."
             exit 1
           fi

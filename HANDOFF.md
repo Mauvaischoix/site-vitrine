@@ -4,6 +4,10 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-21 — Claude (mesure d'audience)
+- Fait : CSP autorise uniquement https://static.cloudflareinsights.com (script) et https://cloudflareinsights.com (envoi) pour Cloudflare Web Analytics, sans cookie ; vérification CSP adaptée (seule exception externe) ; pages Confidentialité et Cookies FR/EN mises à jour. Branche `ia/mesure-audience`.
+- Reste : le propriétaire active Web Analytics dans Cloudflare Pages (Metrics) ; Google Search Console.
+
 ## 2026-11-21 — Claude (référencement)
 - Fait : sitemap.xml (accueil FR/EN + jeu FR/EN, hreflang), ligne Sitemap dans robots.txt, titres/descriptions et ligne de statut enrichis (alternance, business developer, ingénieur d'affaires, gestion de projets, commercial). Branche `ia/seo-sitemap`.
 - Reste : Google Search Console et Bing Webmaster Tools (compte du propriétaire ; code de vérification à ajouter ensuite).
