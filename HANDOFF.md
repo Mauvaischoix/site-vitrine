@@ -4,6 +4,10 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-21 — Claude (CRM de démonstration)
+- Fait : /crm/ et /en/crm/ (Calanque CRM, entreprise et données fictives) : tableau de bord, pipeline (glisser-déposer, 5 tris, score affiché seulement en tri « Score IA »), prospects, fiche avec assistant IA (score à règles visibles, brouillons rédigés à l'avance et signalés), onglet Assistant IA (brief, questions calculées en direct, règles du score). crm.js sans réseau ni stockage. CSP dédiée comme le jeu, exception ajoutée à la vérification, sitemap. Ajouté en premier dans le chapitre VI (FR/EN). Maquette Figma : fichier « CRM démo — Portfolio Mohamed Tanouti ».
+- Reste : vérifier en production (CSP, console), version mobile à revoir sur vrai téléphone.
+
 ## 2026-11-21 — Claude (activation mesure d'audience)
 - Fait : Web Analytics activé par le propriétaire dans Cloudflare Pages (Metrics). Ce commit sert aussi à republier le site pour que Cloudflare injecte son script.
 - À vérifier : présence de static.cloudflareinsights.com dans la page d'accueil, aucune erreur CSP en console.
