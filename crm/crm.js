@@ -177,7 +177,7 @@
   };
   var score = function (d) { var s = factors(d).reduce(function (a, f) { return a + f.v; }, 0); return Math.max(0, Math.min(100, s)); };
   var level = function (s) { return s >= 65 ? "eleve" : s >= 40 ? "moyen" : "faible"; };
-  var badge = function (d) { var s = score(d); return h("span", { class: "score score--" + level(s), text: (EN ? "AI " : "IA ") + s, title: L({ fr: "Score IA : chance de signature sur 100", en: "AI score: chance to win out of 100" }) }); };
+  var badge = function (d) { var s = score(d); return h("span", { class: "score score--" + level(s), text: String(s), title: L({ fr: "Score IA : chance de signature sur 100", en: "AI score: chance to win out of 100" }), "aria-label": (EN ? "AI score " : "Score IA ") + s + "/100" }); };
   var nextLabel = function (d) { return d.next < 0 ? L(TX.late) : d.next === 0 ? L(TX.today) : t(TX.inDays, { n: d.next }); };
   var find = function (id) { return state.deals.filter(function (d) { return d.id === id; })[0]; };
   var total = function (list) { return list.reduce(function (a, d) { return a + d.amount; }, 0); };
@@ -324,10 +324,10 @@
       line: function (d) { return d.company + " · " + money(d.amount) + " · " + t(TX.daysAgo, { n: d.last }); } },
     { q: { fr: "Où risque-t-on de perdre du chiffre ce mois-ci ?", en: "Where are we likely to lose revenue this month?" },
       run: function (ds) { return ds.filter(function (d) { return d.stage >= 1 && score(d) < 40; }); },
-      line: function (d) { return d.company + " · " + (EN ? "AI " : "IA ") + score(d) + " · " + L(d.why); } },
+      line: function (d) { return d.company + " · " + "score " + score(d) + " · " + L(d.why); } },
     { q: { fr: "Quelles affaires peuvent signer en premier ?", en: "Which deals could close first?" },
       run: function (ds) { return ds.filter(function (d) { return d.stage >= 3 && score(d) >= 65; }).sort(sortFns.score); },
-      line: function (d) { return d.company + " · " + money(d.amount) + " · " + (EN ? "AI " : "IA ") + score(d); } },
+      line: function (d) { return d.company + " · " + money(d.amount) + " · " + "score " + score(d); } },
     { q: { fr: "Quel chiffre d'affaires peut-on raisonnablement attendre ?", en: "What revenue can we reasonably expect?" },
       run: function (ds) { return null; },
       text: function (ds) { return EN ? "Open pipeline: " + money(total(ds)) + ". Weighted by the AI score: " + money(weighted(ds)) + ". Deals in negotiation alone: " + money(weighted(ds.filter(function (d) { return d.stage === 4; }))) + "." : "Pipeline ouvert : " + money(total(ds)) + ". Pondéré par le score IA : " + money(weighted(ds)) + ". Rien que les affaires en négociation : " + money(weighted(ds.filter(function (d) { return d.stage === 4; }))) + "."; } }
@@ -340,7 +340,7 @@
       EN ? "You have " : "Vous avez ", h("strong", { text: cold.length + (EN ? (cold.length > 1 ? " deals" : " deal") + " going cold" : (cold.length > 1 ? " affaires qui refroidissent" : " affaire qui refroidit")) }),
       EN ? ", " : ", ", h("strong", { text: soon.length + (EN ? (soon.length > 1 ? " decisions" : " decision") + " expected soon" : (soon.length > 1 ? " décisions attendues bientôt" : " décision attendue bientôt")) }),
       EN ? " and a weighted forecast of " : " et un prévisionnel pondéré de ", h("strong", { text: money(weighted(ds)) }), ". ",
-      EN ? "Best opportunity: " : "Meilleure opportunité : ", h("strong", { text: best.company + " (" + (EN ? "AI " : "IA ") + score(best) + ")" }), ".");
+      EN ? "Best opportunity: " : "Meilleure opportunité : ", h("strong", { text: best.company + " (" + "score " + score(best) + ")" }), ".");
     frag.push(h("section", { class: "panneau", "aria-labelledby": "t-brief" }, h("div", { class: "titre-ligne" }, h("h2", { id: "t-brief", text: L(TX.brief) }), h("span", { class: "etiquette-ia", text: L(TX.rankedAI) })), brief));
     var qs = h("div", { class: "questions" }), ans = h("div", { class: "reponse", "aria-live": "polite" });
     var showAnswer = function (i) {
