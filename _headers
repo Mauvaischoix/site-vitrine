@@ -32,6 +32,15 @@
   ! Content-Security-Policy
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; font-src 'self'; connect-src https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'; upgrade-insecure-requests
 
+# CRM de démonstration (FR /crm/, EN /en/crm/) : uniquement notre fichier /crm/crm.js, comme le jeu (accord du propriétaire, 21/11/2026).
+/crm/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; font-src 'self'; connect-src https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests
+
+/en/crm/*
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; font-src 'self'; connect-src https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests
+
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
