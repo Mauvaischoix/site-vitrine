@@ -4,6 +4,10 @@ Chaque IA : lis ce fichier en arrivant. En partant, ajoute une entrée EN HAUT (
 
 ---
 
+## 2026-11-21 — Claude (activation mesure d'audience)
+- Fait : Web Analytics activé par le propriétaire dans Cloudflare Pages (Metrics). Ce commit sert aussi à republier le site pour que Cloudflare injecte son script.
+- À vérifier : présence de static.cloudflareinsights.com dans la page d'accueil, aucune erreur CSP en console.
+
 ## 2026-11-21 — Claude (mesure d'audience)
 - Fait : CSP autorise uniquement https://static.cloudflareinsights.com (script) et https://cloudflareinsights.com (envoi) pour Cloudflare Web Analytics, sans cookie ; vérification CSP adaptée (seule exception externe) ; pages Confidentialité et Cookies FR/EN mises à jour. Branche `ia/mesure-audience`.
 - Reste : le propriétaire active Web Analytics dans Cloudflare Pages (Metrics) ; Google Search Console.
